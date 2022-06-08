@@ -3,10 +3,14 @@ from os import system, name
 
 grind = False
 menupage = False
-money = 0
+money = 90000000
 multiple = 1000
 listmult = [2, 4, 6, 9, 12, 50, 90, 200, 700, 1000]
 listprc = [4000, 5000, 7000, 12000, 30000, 100000, 500000, 900000, 1200000, 5000000]
+
+def finish():
+	print("Congratulation you finish the game!")
+	sleep(500)
 
 def tutor():
 	print("Type anything to grind money!\nTo leave type 'exit'!")
@@ -89,7 +93,24 @@ print("Here you can do in this game!")
 sleep(1)
 menupage = True
 while menupage == True:
-	print("Your Money:",money,"Multiple:",multiple,"x\n\n")
+	if money >= 1000 and money < 1000000:
+		test = money / 1000
+		mp = round(test) * 1000
+		test1 = money - mp
+		other = round(test)
+		other1 = round(test1)
+		testagain = str(other) + ',' + str(other1)
+	elif money >= 1000000 and money < 1000000000:
+		test = money / 1000000
+		other = round(test)
+		testagain = str(other) + 'M'
+	elif money >= 1000000000 and money < 1000000000000:
+		test = money / 1000000000
+		other = round(test)
+		testagain = str(other) + 'B'
+	else:
+		finish()
+	print("Your Money:",testagain,"Multiple:",multiple,"x\n\n")
 	print("[1] Start grinding money!")
 	print("[2] Upgrade Tools!")
 	menu = int(input("\n:"))
